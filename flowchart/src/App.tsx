@@ -42,7 +42,7 @@ const allSteps: { id: string; label: string; description: string; phase: Phase }
   // Loop phase
   { id: '4', label: 'AI picks a story', description: 'Finds next passes: false', phase: 'loop' },
   { id: '5', label: 'Implements it', description: 'Writes code, runs tests', phase: 'loop' },
-  { id: '6', label: 'Commits changes', description: 'If tests pass', phase: 'loop' },
+  { id: '6', label: 'Stores in Crow Memory', description: 'Tagged project:<branchName>, linked depends-on to prior story', phase: 'loop' },
   { id: '7', label: 'Updates prd.json', description: 'Sets passes: true', phase: 'loop' },
   { id: '8', label: 'Logs to progress.txt', description: 'Saves learnings', phase: 'loop' },
   { id: '9', label: 'More stories?', description: '', phase: 'decision' },

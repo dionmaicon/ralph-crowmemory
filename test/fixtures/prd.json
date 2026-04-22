@@ -1,0 +1,43 @@
+{
+  "project": "RalphDryRun",
+  "branchName": "test-crow-ralph",
+  "description": "Dry-run fixture — no-op stories that mutate TARGET.md only. Used to exercise the Crow Memory persistence flow.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Append LINE-A to TARGET.md marker block",
+      "description": "Between the <!-- MARKER-START --> and <!-- MARKER-END --> lines in TARGET.md, append a new line: LINE-A.",
+      "acceptanceCriteria": [
+        "TARGET.md contains the literal string 'LINE-A' inside the marker block",
+        "Marker block delimiters remain intact and in order"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Append LINE-B after LINE-A in TARGET.md",
+      "description": "After the LINE-A line inserted by US-001, append a new line: LINE-B. Both must remain inside the marker block.",
+      "acceptanceCriteria": [
+        "TARGET.md contains 'LINE-A' followed by 'LINE-B' inside the marker block",
+        "No duplicate LINE-A entries"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Replace marker block timestamp line",
+      "description": "Add or update a line inside the marker block of the form: TIMESTAMP: <ISO-8601 UTC>.",
+      "acceptanceCriteria": [
+        "Marker block contains exactly one TIMESTAMP: line with a valid ISO-8601 UTC value",
+        "LINE-A and LINE-B from prior stories are preserved"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

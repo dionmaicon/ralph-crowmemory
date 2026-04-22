@@ -1,0 +1,31 @@
+{
+  "project": "RalphDryRunV2",
+  "branchName": "test-crow-ralph-v2",
+  "description": "Dry-run fixture v2 — triggers the archive-previous-project flow after v1 has been run. Different branchName forces the agent to archive v1's Crow Memory entries and copy prd.json + progress.txt into archive/.",
+  "userStories": [
+    {
+      "id": "US-010",
+      "title": "Append LINE-C to TARGET.md marker block",
+      "description": "Between the marker delimiters in TARGET.md, append a new line: LINE-C. Older content from the v1 run may or may not be present — do not rely on it.",
+      "acceptanceCriteria": [
+        "TARGET.md contains the literal string 'LINE-C' inside the marker block",
+        "Marker delimiters remain intact and in order"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-011",
+      "title": "Record v2 completion note in TARGET.md",
+      "description": "Add a line inside the marker block: V2-RUN: passed.",
+      "acceptanceCriteria": [
+        "Marker block contains exactly one 'V2-RUN: passed' line",
+        "LINE-C from US-010 is preserved"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

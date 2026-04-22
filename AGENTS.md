@@ -42,6 +42,7 @@ npm run dev
 ## Patterns
 
 - Each iteration spawns a fresh AI instance (Amp or Claude Code) with clean context
-- Memory persists via git history, `progress.txt`, and `prd.json`
+- Memory persists via the **Crow Memory MCP** server (`mcp__crow-memory__*`), `progress.txt`, and `prd.json`. One Crow Memory entry per completed story, tagged `project:<branchName>` and linked `depends-on` to the previous story.
+- No git commits or branches — the agent never runs `git commit`/`git checkout`
 - Stories should be small enough to complete in one context window
 - Always update AGENTS.md with discovered patterns for future iterations

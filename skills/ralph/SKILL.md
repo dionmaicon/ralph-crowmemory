@@ -232,16 +232,17 @@ Add ability to mark tasks with different statuses.
 
 ## Archiving Previous Runs
 
-**Before writing a new prd.json, check if there is an existing one from a different feature:**
+This fork uses the **Crow Memory MCP** server for cross-iteration memory instead of git.
 
-1. Read the current `prd.json` if it exists
-2. Check if `branchName` differs from the new feature's branch name
-3. If different AND `progress.txt` has content beyond the header:
-   - Create archive folder: `archive/YYYY-MM-DD-feature-name/`
-   - Copy current `prd.json` and `progress.txt` to archive
-   - Reset `progress.txt` with fresh header
+`archive_memory` is used only to clean up **stale memories from the same project** — entries that have `status:completed` for stories that are now `passes: false` again (i.e. the project was reset for a fresh run). The agent detects this at the start of each iteration and archives those specific entries via `mcp__crow-memory__archive_memory` (reversible via `restore_memory`).
 
-**The ralph.sh script handles this automatically** when you run it, but if you are manually updating prd.json between runs, archive first.
+**The agent never touches memories from other projects.** Each project's memories are scoped entirely by its `project:<branchName>` tag.
+
+If you are manually resetting `prd.json` for a fresh run, you can archive the previous run's memories yourself:
+```
+mcp__crow-memory__recall_by_tag tags=["project:<branchName>"] → get vector_ids
+mcp__crow-memory__archive_memory vector_id=<id>   (repeat per entry)
+```
 
 ---
 

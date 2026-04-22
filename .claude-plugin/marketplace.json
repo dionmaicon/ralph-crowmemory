@@ -1,19 +1,19 @@
 {
-  "name": "ralph-marketplace",
+  "name": "ralph-crowmemory-marketplace",
   "owner": {
-    "name": "snarktank"
+    "name": "Dion Maicon"
   },
   "metadata": {
-    "description": "Skills for the Ralph autonomous agent system - Generate PRDs and convert them to prd.json format for autonomous execution",
-    "version": "1.0.0"
+    "description": "Ralph autonomous agent loop (Crow Memory fork) - Skills to generate PRDs and convert them to prd.json format. Cross-iteration persistence uses the Crow Memory MCP server instead of git.",
+    "version": "2.0.0"
   },
   "plugins": [
     {
-      "name": "ralph-skills",
+      "name": "ralph-crowmemory-skills",
       "source": "./",
-      "description": "PRD generation and conversion skills for the Ralph autonomous agent loop",
-      "version": "1.0.0",
-      "keywords": ["ralph", "prd", "automation", "agent", "planning"],
+      "description": "PRD generation and conversion skills for the Ralph autonomous agent loop (Crow Memory fork).",
+      "version": "2.0.0",
+      "keywords": ["ralph", "prd", "automation", "agent", "planning", "crow-memory", "mcp"],
       "category": "productivity",
       "skills": "./skills/"
     }
