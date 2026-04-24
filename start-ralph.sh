@@ -288,6 +288,7 @@ echo "  AGENTS.md        (ralph overview)"
 
 echo ""
 echo "Next steps:"
+step=1
 if [ -f "$PROMPT_FILE" ]; then
   if [ "$AUTO" -eq 1 ]; then
     if command -v "$TOOL" >/dev/null 2>&1; then
@@ -302,17 +303,17 @@ if [ -f "$PROMPT_FILE" ]; then
       echo "       $TOOL < $PROMPT_FILE"
     fi
   else
-    echo "  1. Merge CLAUDE.md:"
+    echo "  $step. Merge CLAUDE.md:"
     echo "       claude --print < $PROMPT_FILE"
     echo "     or"
     echo "       amp < $PROMPT_FILE"
     echo "     (or re-run: $SCRIPT_NAME --auto)"
+    step=$((step + 1))
   fi
-  echo "  2. Create prd.json via the /prd and /ralph skills."
-else
-  echo "  1. Create prd.json via the /prd and /ralph skills."
 fi
-echo "  3. Launch: ./ralph.sh --tool $TOOL $ITERATIONS"
+echo "  $step. Create prd.json via the /prd and /ralph skills."
+step=$((step + 1))
+echo "  $step. Launch: ./ralph.sh --tool $TOOL $ITERATIONS"
 echo "     Long runs: add --auto-resume to survive Claude rate-limit windows."
 echo ""
 
